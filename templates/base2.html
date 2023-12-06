@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+      .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 20%;
+      }
+      /* Style all font awesome icons */
+      .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 50px;
+      text-align: center;
+      text-decoration: none;
+      }
+
+     /* Add a hover effect if you want */
+      .fa:hover {
+      opacity: 0.7;
+     }
+
+     /* Set a specific color for each brand */
+
+    /* Facebook */
+    .fa-facebook {
+    background: #3B5998;
+    color: white;
+   }
+
+   /* Twitter */
+   .fa-twitter {
+    background: #55ACEE;
+    color: white;
+   }
+   /* Gmail */
+    .fa-google {
+    background: #C71610;
+    color: white;
+   }
+   /* Skype */
+   .fa-skype {
+    background: #55ACEE;
+    color: white;
+   }
+   /* Youtube */
+    .fa-youtube {
+    background: #FF0000;
+    color: white;
+   }
+
+   body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+.container-contact-2 {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 150px;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Add any custom styles here */
+        .ads-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .ad-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #353935;
+        }
+    
+
+        .ad-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .ad-card-content {
+            padding: 20px;
+        }
+
+        .ad-card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .ad-card-details {
+            margin-bottom: 10px;
+        }
+
+        .ad-card-price {
+            font-weight: bold;
+            color: #333;
+        }
+      
+
+          .carousel-inner img {
+            max-width: 1600px;
+            max-height: 550px;
+            width: auto;
+            height: auto;
+            
+            
+          }
+         
+          
+          
+          
+          
+          
+        
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="navcontainer">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><strong><i>CarKoto</i></strong></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link" aria-current="page" href="/home">Home</a>
+                  <a class="nav-link" href="/about">About</a>
+                  <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+ 
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          
+    </div>
+
+     <!-- Add this code in your base template where you want to display messages -->
+    {% if messages %}
+    <ul class="messages">
+     {% for message in messages %}
+     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+   
+    
+  
+    {% block body %}{% endblock body %}
+
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</body>
+</html>

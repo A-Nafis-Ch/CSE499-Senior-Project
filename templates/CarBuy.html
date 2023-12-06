@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}CarKoto|Buy A Car{% endblock title %}
+
+{% block body %}
+
+
+
+<form class="form-inline d-flex justify-content-center mt-3" method="get" action="{% url 'CarBuy' %}">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search by Location" name="location_search">
+        <div class="input-group-append">
+            <button class="btn btn-primary p-1" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+
+
+
+        <div class="container mx-auto px-4 py-8">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {% for ad in ads %}
+                <div class="col">
+                    <a href="{% url 'car_detail' car_id=ad.id %}" style="text-decoration: none; color: inherit;">
+                        <div class="card h-100 bg-dark">
+                            <img src="{{ ad.image1.url }}" alt="{{ ad.title }} Image 1" class="card-img-top ad-image">
+                            <div class="card-body text-white">
+                                <h3 class="card-title"><b>{{ ad.title }}</b></h3>
+                                <p class="card-text"><i><strong>Location:</strong></i> {{ ad.location }}</p><hr class="bg-light mb-2">
+                                <p class="card-text"><i><strong>Mileage:</strong></i> {{ ad.mileage}}KM</p><hr class="bg-light mb-2">
+                                <p class="card-text"><i><strong>Price:</strong></i> ৳{{ ad.price }}</p><hr class="bg-light mb-2">
+                                <p class="card-text"><i><strong>Posted by:</strong> {{ ad.user.username }}</i></p>
+                                
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            <nav aria-label="Ads Pagination">
+                <ul class="pagination custom-pagination">
+                    {% if page.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page.previous_page_number }}">Previous</a>
+                    </li>
+                    {% endif %}
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">{{ page.number }}</span>
+                    </li>
+                    {% if page.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page.next_page_number }}">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+
+   
+<style>
+    .card:hover  {
+        transform: scale(1.1); /* Increase this value for stronger zoom effect */
+        transition: transform 0.3s ease-in-out;
+    }
+    .ad-image {
+        max-height: 200px; /* Adjust this value as needed */
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+    }
+    body {
+        background-image: url('/static/temp images/carads3.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        
+    }
+
+  
+    
+
+</style>
+
+
+{% endblock body %}

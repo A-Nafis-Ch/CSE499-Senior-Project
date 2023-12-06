@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}CarKoto|Contact{% endblock title %}
+
+
+{% block body %}
+
+
+
+<div class="container-contact-2 opacity-75 px-5">
+  <h1 class="text-center text-light mb-5">Contact Us</h1>
+    <form method="post" action="/contact" class="mx-auto p-2 col-12 col-md-12 col-lg-14 px-5 bg-dark rounded">
+      {% csrf_token %}
+      
+        <div class="mb-3">
+          <label for="name" class="form-label text-white">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+          
+        <div class="mb-3">
+            <label for="phone" class="form-label text-white">Phone</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
+            
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label text-white">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text text-white">We'll never share your email with anyone else.</div>
+          </div>
+        <div class="mb-3">
+          <label for="desc" class="form-label text-white">For Any Queries </label>
+          <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary center-button">Submit</button>
+
+      </form>
+
+
+<style>
+
+  body {
+    background-image: url('/static/temp images/carads2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+</style>
+
+
+{% endblock body %}

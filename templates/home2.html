@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block title %}CarKoto|Home{% endblock title %}
+
+
+{% block body %}
+
+
+<div class="carousalcontainer">
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+       
+        <img src="static/carousal images/img11.webp" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>CarKoto</h5>
+            <p>A trustworthy place where you can buy or sell your car.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="static/carousal images/cd2.webp"  class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First ML Car Price Prediction Platform</h5>
+            <p>You can predict the price of your car before you buy or sell.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="static/carousal images/img22.jpg"  class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Secured</h5>
+            <p>This website is secured from anykind of personal info leaking.</p>
+          </div>
+      </div>
+    </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+    </div>
+
+    <div class="cardscontainer bg-dark p-4 text-light text-center">
+      <h5>Popular Cars In Bangladesh</h5>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card bg-black text-light h-100 w-100">
+            <img src="static/cardpics/Premio1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Toyota Premio 2023</h5>
+              <p class="card-text">The Toyota Premio is a stylish, fuel-efficient sedan known for its reliability, comfortable interior, advanced safety features, and smooth driving experience, making it a popular choice worldwide.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-black text-light h-100 w-100">
+            <img src="static/cardpics/Aqua.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Toyota Aqua 2023</h5>
+              <p class="card-text">The Toyota Aqua, a compact hybrid car, offers excellent fuel efficiency, eco-friendly driving, modern features, and a compact design, making it ideal for urban commuting and eco-conscious drivers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-black text-light h-100 w-100">
+            <img src="static/cardpics/vezel.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Honda Vezel 2023</h5>
+              <p class="card-text">The Honda Vezel is a versatile subcompact SUV known for its sporty design, spacious interior, advanced technology, and efficient hybrid options, appealing to both city and adventure enthusiasts.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-black text-light h-100 w-100">
+            <img src="static/cardpics/X-trail2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Nissan X-Trail 2023</h5>
+              <p class="card-text">The Nissan X-Trail is a versatile crossover SUV celebrated for its spacious cabin, rugged off-road capabilities, advanced safety tech, and comfortable ride, perfect for family adventures and daily commuting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // JavaScript code to enable auto-sliding
+      var currentIndex = 0;
+      var slides = document.querySelectorAll('.carousel-item');
+      var interval = 5000; // Time in milliseconds, adjust as needed
+    
+      function nextSlide() {
+        slides[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].classList.add('active');
+      }
+    
+      setInterval(nextSlide, interval);
+    </script>
+
+    
+
+<script>
+  // JavaScript code to enable auto-sliding
+  var currentIndex = 0;
+  var slides = document.querySelectorAll('.carousel-item');
+  var interval = 5000; // Time in milliseconds, adjust as needed
+
+  function nextSlide() {
+    slides[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].classList.add('active');
+  }
+
+  setInterval(nextSlide, interval);
+</script>
+
+    <div class="containerfooter text-center bg-black text-light py-2 opacity-100">
+             <!-- ... other navigation links ... -->
+         <span class="nav-link ml-auto"><h3><b>Welcome, {{ user_name }}!<b></h3></span>
+        <h2 style="font-family:serif">CarKoto</h2>
+        <a href="https://www.youtube.com" target="_blank" class="fa fa-youtube"></a>
+        <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"></a>
+        <a href="https://www.google.com" target="_blank" class="fa fa-google"></a>
+        <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
+        <a href="https://www.skype.com" target="_blank" class="fa fa-skype"></a>
+
+    </div>
+
+    
+  </div>
+</div>
+
+{% endblock body %}

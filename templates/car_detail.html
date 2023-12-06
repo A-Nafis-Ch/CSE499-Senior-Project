@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}Car Details{% endblock title %}
+{% block body %}
+
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="text-center">Car Details</h1>
+            <h3 class="card-title"><b>{{ ad.title }}</b></h3>
+            <p class="card-text"><strong>Owner Name:</strong> {{ ad.cname }} ({{ ad.user.username }})</p><hr class="bg-dark mb-4">
+            <p class="card-text"><strong>Phone:</strong> {{ ad.phone }}</p><hr class="bg-dark mb-4">
+            <p class="card-text"><strong>Address:</strong> {{ ad.caddress }}</p><hr class="bg-dark mb-4">
+            <p class="card-text"><strong>Location:</strong> {{ ad.location }}</p><hr class="bg-dark mb-4">
+            <p class="card-text"><strong>Brand:</strong> {{ ad.brand }}</p><hr class="bg-dark mb-4">
+            <p class="card-text"><strong>Model:</strong> {{ ad.model }}</p><hr class="bg-dark mb-4">
+            <p class="card-text"><strong>Registration:</strong> {{ ad.registration }}</p><hr class="bg-dark mb-4">
+            <p class="card-text"><strong>Mileage:</strong> {{ ad.mileage }}KM</p><hr class="bg-dark mb-4">
+            <p class="card-text"><strong>Price:</strong> ৳{{ ad.price }}</p><hr class="bg-dark mb-4">
+            <p class="card-text"><strong>Description:</strong> {{ ad.description }}</p><hr class="bg-dark mb-4">
+            <!-- Display individual images here -->
+            <div class="image-container">
+                <img src="{{ ad.image1.url }}" class="car-image" alt="Car Image 1">
+                <img src="{{ ad.image2.url }}" class="car-image" alt="Car Image 2">
+                <img src="{{ ad.image3.url }}" class="car-image" alt="Car Image 3">
+                <img src="{{ ad.image4.url }}" class="car-image" alt="Car Image 4">
+                <img src="{{ ad.image5.url }}" class="car-image" alt="Car Image 5">
+
+            </div>
+
+            <!-- Modal for displaying larger images -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="{{ ad.image1.url }}" class="img-fluid" alt="Car Image">
+                </div>
+            </div>
+        </div>
+    </div>
+            <a href="{% url 'CarBuy' %}" class="btn btn-dark mt-3">Back to Car Ads</a>
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .card {
+        background-color: rgba(255, 255, 255, 0.75); /* White color with 75% opacity */
+        padding: 20px; /* Adjust padding as needed */
+        border-radius: 10px; /* Add rounded corners */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    
+    .car-image {
+        max-width: 20%;
+        height: auto;
+        border: 2px solid #ccc;
+        margin-right: 1px;
+    }
+
+    body {
+        background-image: url('/static/carousal images/img9.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+ 
+    </style>
+
+{% endblock body %}
